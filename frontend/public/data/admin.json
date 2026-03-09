@@ -1,0 +1,28 @@
+{
+  "admins": [
+    {
+      "id": "ea6aa76d-a9ef-44c8-bb31-11fce9194de9",
+      "email": "admin@noirfolio.com",
+      "password": "Admin@12345"
+    }
+  ],
+  "profile": {
+    "name": "Shivi Pareek",
+    "tagline": "Capturing timeless moments through light and emotion.",
+    "story": "I am a documentary and editorial photographer working across weddings, portraits, and travel assignments. My practice is rooted in quiet observation, contrast-driven composition, and human emotion. Every frame is designed to feel honest, cinematic, and enduring.",
+    "portrait_image": "https://images.unsplash.com/photo-1702825623787-64cab26698b5?auto=format&fit=crop&w=1600&q=80",
+    "achievements": [
+      "Featured in Monochrome Journal 2025",
+      "Top 30 Wedding Storytellers \u2014 Global Frames",
+      "Exhibited at Editorial Lens Week, Milan"
+    ],
+    "testimonials": [
+      "Every image felt like a still from a timeless film.",
+      "Effortless direction, beautiful storytelling, exceptional result.",
+      "A deeply personal and elegant documentation of our day."
+    ]
+  },
+  "github": {
+    "default_branch": "main"
+  }
+}

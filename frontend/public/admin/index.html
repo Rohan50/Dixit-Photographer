@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivi Pareek CMS Admin</title>
+    <meta name="description" content="Static JSON CMS admin panel" />
+    <link rel="stylesheet" href="/admin/styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell" data-testid="vanilla-admin-shell">
+      <header class="admin-header" data-testid="vanilla-admin-header">
+        <h1 data-testid="vanilla-admin-title">Shivi Pareek CMS</h1>
+        <button id="logoutBtn" class="ghost-btn" data-testid="vanilla-admin-logout-button">Logout</button>
+      </header>
+
+      <section id="loginSection" class="panel" data-testid="vanilla-admin-login-section">
+        <h2 data-testid="vanilla-admin-login-heading">Login</h2>
+        <form id="loginForm" class="stack" data-testid="vanilla-admin-login-form">
+          <label>Email
+            <input id="adminEmail" type="email" required data-testid="vanilla-admin-email-input" />
+          </label>
+          <label>Password
+            <input id="adminPassword" type="password" required data-testid="vanilla-admin-password-input" />
+          </label>
+          <button type="submit" data-testid="vanilla-admin-login-submit-button">Continue</button>
+        </form>
+      </section>
+
+      <section id="dashboardSection" class="hidden" data-testid="vanilla-admin-dashboard-section">
+        <div class="summary-grid" data-testid="vanilla-admin-summary-grid">
+          <article class="panel" data-testid="vanilla-admin-summary-galleries"><p>Galleries</p><strong id="summaryGalleries">0</strong></article>
+          <article class="panel" data-testid="vanilla-admin-summary-blogs"><p>Blogs</p><strong id="summaryBlogs">0</strong></article>
+          <article class="panel" data-testid="vanilla-admin-summary-enquiries"><p>Enquiries</p><strong id="summaryEnquiries">0</strong></article>
+        </div>
+
+        <div class="download-row" data-testid="vanilla-admin-download-row">
+          <button id="downloadGalleriesBtn" class="ghost-btn" data-testid="vanilla-admin-download-galleries-button">Download galleries.json</button>
+          <button id="downloadBlogsBtn" class="ghost-btn" data-testid="vanilla-admin-download-blogs-button">Download blogs.json</button>
+          <button id="downloadEnquiriesBtn" class="ghost-btn" data-testid="vanilla-admin-download-enquiries-button">Download enquiries.json</button>
+        </div>
+
+        <div class="tabs" data-testid="vanilla-admin-tabs">
+          <button class="tab active" data-section="galleries" data-testid="vanilla-admin-tab-galleries">Manage Galleries</button>
+          <button class="tab" data-section="blogs" data-testid="vanilla-admin-tab-blogs">Manage Blogs</button>
+          <button class="tab" data-section="enquiries" data-testid="vanilla-admin-tab-enquiries">Manage Enquiries</button>
+        </div>
+
+        <section id="galleriesPanel" class="content-panel" data-testid="vanilla-admin-galleries-panel">
+          <div class="two-column">
+            <form id="galleryForm" class="panel stack" data-testid="vanilla-admin-gallery-form">
+              <h3 data-testid="vanilla-admin-gallery-form-heading">Add / Edit Gallery</h3>
+              <input id="galleryId" type="hidden" />
+              <label>Title<input id="galleryTitle" required data-testid="vanilla-admin-gallery-title-input" /></label>
+              <label>Category<input id="galleryCategory" required data-testid="vanilla-admin-gallery-category-input" /></label>
+              <label>Description<textarea id="galleryDescription" rows="3" required data-testid="vanilla-admin-gallery-description-input"></textarea></label>
+              <label>Location<input id="galleryLocation" data-testid="vanilla-admin-gallery-location-input" /></label>
+              <label>Shoot Date<input id="galleryShootDate" data-testid="vanilla-admin-gallery-date-input" /></label>
+              <label>Cover Image URL<input id="galleryCoverImage" required data-testid="vanilla-admin-gallery-cover-input" /></label>
+              <label>Image URLs (one per line)<textarea id="galleryImages" rows="4" required data-testid="vanilla-admin-gallery-images-textarea"></textarea></label>
+              <label class="checkbox"><input id="galleryFeatured" type="checkbox" data-testid="vanilla-admin-gallery-featured-checkbox" /> Featured</label>
+              <div class="inline-actions">
+                <button type="submit" data-testid="vanilla-admin-gallery-save-button">Save Gallery</button>
+                <button id="galleryResetBtn" type="button" class="ghost-btn" data-testid="vanilla-admin-gallery-reset-button">Reset</button>
+              </div>
+            </form>
+
+            <div class="panel" data-testid="vanilla-admin-gallery-list-panel">
+              <h3 data-testid="vanilla-admin-gallery-list-heading">Existing Galleries</h3>
+              <div id="galleryList" class="list" data-testid="vanilla-admin-gallery-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="blogsPanel" class="content-panel hidden" data-testid="vanilla-admin-blogs-panel">
+          <div class="two-column">
+            <form id="blogForm" class="panel stack" data-testid="vanilla-admin-blog-form">
+              <h3 data-testid="vanilla-admin-blog-form-heading">Add / Edit Blog</h3>
+              <input id="blogId" type="hidden" />
+              <label>Title<input id="blogTitle" required data-testid="vanilla-admin-blog-title-input" /></label>
+              <label>Category<input id="blogCategory" required data-testid="vanilla-admin-blog-category-input" /></label>
+              <label>Excerpt<textarea id="blogExcerpt" rows="2" required data-testid="vanilla-admin-blog-excerpt-input"></textarea></label>
+              <label>Content<textarea id="blogContent" rows="6" required data-testid="vanilla-admin-blog-content-input"></textarea></label>
+              <label>Cover Image URL<input id="blogCoverImage" required data-testid="vanilla-admin-blog-cover-input" /></label>
+              <label>Embedded Images (one per line)<textarea id="blogEmbeddedImages" rows="4" data-testid="vanilla-admin-blog-embedded-images-textarea"></textarea></label>
+              <label class="checkbox"><input id="blogFeatured" type="checkbox" data-testid="vanilla-admin-blog-featured-checkbox" /> Featured</label>
+              <div class="inline-actions">
+                <button type="submit" data-testid="vanilla-admin-blog-save-button">Save Blog</button>
+                <button id="blogResetBtn" type="button" class="ghost-btn" data-testid="vanilla-admin-blog-reset-button">Reset</button>
+              </div>
+            </form>
+
+            <div class="panel" data-testid="vanilla-admin-blog-list-panel">
+              <h3 data-testid="vanilla-admin-blog-list-heading">Existing Blogs</h3>
+              <div id="blogList" class="list" data-testid="vanilla-admin-blog-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="enquiriesPanel" class="content-panel hidden" data-testid="vanilla-admin-enquiries-panel">
+          <div class="two-column">
+            <form id="enquiryForm" class="panel stack" data-testid="vanilla-admin-enquiry-form">
+              <h3 data-testid="vanilla-admin-enquiry-form-heading">Add / Edit Enquiry</h3>
+              <input id="enquiryId" type="hidden" />
+              <label>Name<input id="enquiryName" required data-testid="vanilla-admin-enquiry-name-input" /></label>
+              <label>Email<input id="enquiryEmail" type="email" required data-testid="vanilla-admin-enquiry-email-input" /></label>
+              <label>Phone<input id="enquiryPhone" required data-testid="vanilla-admin-enquiry-phone-input" /></label>
+              <label>Event Type<input id="enquiryEventType" required data-testid="vanilla-admin-enquiry-event-type-input" /></label>
+              <label>Event Date<input id="enquiryEventDate" required data-testid="vanilla-admin-enquiry-event-date-input" /></label>
+              <label>Location<input id="enquiryLocation" required data-testid="vanilla-admin-enquiry-location-input" /></label>
+              <label>Budget Range<input id="enquiryBudget" required data-testid="vanilla-admin-enquiry-budget-input" /></label>
+              <label>Status
+                <select id="enquiryStatus" data-testid="vanilla-admin-enquiry-status-select">
+                  <option value="new">new</option>
+                  <option value="contacted">contacted</option>
+                </select>
+              </label>
+              <label>Message<textarea id="enquiryMessage" rows="4" required data-testid="vanilla-admin-enquiry-message-textarea"></textarea></label>
+              <div class="inline-actions">
+                <button type="submit" data-testid="vanilla-admin-enquiry-save-button">Save Enquiry</button>
+                <button id="enquiryResetBtn" type="button" class="ghost-btn" data-testid="vanilla-admin-enquiry-reset-button">Reset</button>
+              </div>
+            </form>
+
+            <div class="panel" data-testid="vanilla-admin-enquiries-list-panel">
+              <h3 data-testid="vanilla-admin-enquiries-heading">Enquiries</h3>
+              <div id="enquiryList" class="list" data-testid="vanilla-admin-enquiry-list"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <div id="message" class="message" data-testid="vanilla-admin-message"></div>
+    </div>
+
+    <script src="/admin/app.js"></script>
+  </body>
+  </html>
