@@ -1,0 +1,821 @@
+.site-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #1b1b1b 0%, #060606 35%, #000000 70%);
+  color: #ffffff;
+  transition: background 260ms ease, color 260ms ease;
+}
+
+.content-wrap {
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1rem 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.theme-toggle-btn {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.brand-link {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.2em;
+  font-size: 1.05rem;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.nav-link,
+.mobile-nav-link,
+.footer-link,
+.text-link {
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.nav-link.active,
+.mobile-nav-link.active,
+.nav-link:hover,
+.mobile-nav-link:hover,
+.footer-link:hover,
+.text-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover,
+.text-link:hover {
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: #ffffff;
+}
+
+.mobile-menu {
+  display: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.95);
+  padding: 0.9rem 1.5rem 1.2rem;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.55rem 0;
+}
+
+.site-main {
+  padding-bottom: 4rem;
+}
+
+.hero-section {
+  position: relative;
+  min-height: min(82vh, 920px);
+  display: grid;
+  align-items: end;
+}
+
+.hero-image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.4) 52%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.hero-content {
+  position: relative;
+  padding: clamp(3.2rem, 7vw, 7rem) 0;
+  z-index: 2;
+  animation: revealUp 900ms ease;
+}
+
+.display-title,
+.page-title {
+  font-family: "Cormorant Garamond", serif;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.display-title {
+  max-width: 20ch;
+  font-size: clamp(2.4rem, 8vw, 5.1rem);
+}
+
+.page-title {
+  font-size: clamp(2rem, 5.4vw, 3.6rem);
+}
+
+.hero-description,
+.body-text {
+  max-width: 62ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.section-spacing {
+  padding: clamp(2.1rem, 5vw, 4.8rem) 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+  margin: 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid .image-card:nth-child(1),
+.gallery-grid .image-card:nth-child(4) {
+  grid-column: span 7;
+  min-height: 420px;
+}
+
+.gallery-grid .image-card:nth-child(2),
+.gallery-grid .image-card:nth-child(3),
+.gallery-grid .image-card:nth-child(5),
+.gallery-grid .image-card:nth-child(6) {
+  grid-column: span 5;
+  min-height: 300px;
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: transform 450ms ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 12%, transparent 100%);
+}
+
+.card-category {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.card-title,
+.blog-title {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+.card-meta {
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.7rem;
+  align-items: center;
+}
+
+.split-image {
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.split-image img,
+.detail-hero-image,
+.embedded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.split-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.blog-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 280ms ease, border-color 280ms ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.blog-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.blog-content {
+  padding: 1rem;
+}
+
+.cta-strip {
+  margin-top: 0.5rem;
+  padding: 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.filter-row,
+.admin-tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.filter-chip {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+  padding: 0.45rem 0.9rem;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.masonry-grid {
+  columns: 3 280px;
+  column-gap: 0.85rem;
+}
+
+.masonry-item {
+  display: block;
+  margin-bottom: 0.85rem;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  transition: transform 240ms ease;
+}
+
+.masonry-item img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.masonry-item:hover {
+  transform: scale(1.01);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.94);
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox-image {
+  max-width: min(1100px, 94vw);
+  max-height: 84vh;
+  object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+}
+
+.lightbox-close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.lightbox-nav.left {
+  left: 1rem;
+}
+
+.lightbox-nav.right {
+  right: 1rem;
+}
+
+.lightbox-count {
+  position: absolute;
+  bottom: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.detail-content {
+  max-width: 840px;
+}
+
+.feature-quote {
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  padding-left: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.panel,
+.booking-form,
+.admin-auth-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.2rem;
+}
+
+.simple-list {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.booking-form,
+.admin-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.form-label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.65rem 0.7rem;
+  color: #ffffff;
+}
+
+input:focus,
+textarea:focus {
+  outline: 1px solid rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.form-error {
+  color: #fcbdbd;
+  font-size: 0.8rem;
+}
+
+.admin-auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top left, #171717 0%, #060606 45%, #000000 85%);
+}
+
+.admin-auth-card {
+  width: min(460px, calc(100% - 2rem));
+  display: grid;
+  gap: 0.8rem;
+}
+
+.admin-dashboard-shell {
+  min-height: 100vh;
+  background: #050505;
+  color: #ffffff;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.summary-value {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.admin-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.admin-list {
+  display: grid;
+  gap: 0.8rem;
+  max-height: 780px;
+  overflow-y: auto;
+}
+
+.admin-list-item {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.admin-list-item.vertical {
+  display: grid;
+  gap: 0.8rem;
+  justify-content: stretch;
+}
+
+.inline-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+}
+
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 0.85rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 3.4rem;
+  padding: 2.3rem 0 1rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.17em;
+}
+
+.footer-text,
+.copyright {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.88rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.light .site-shell {
+  background: radial-gradient(circle at top right, #f2f2f2 0%, #fafafa 40%, #ffffff 85%);
+  color: #0f0f0f;
+}
+
+.light .site-header {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .mobile-menu {
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.light .nav-link,
+.light .mobile-nav-link,
+.light .footer-link,
+.light .text-link,
+.light .footer-text,
+.light .body-text,
+.light .hero-description,
+.light .card-meta,
+.light .copyright,
+.light .loading-text,
+.light .card-category,
+.light .eyebrow,
+.light .feature-quote {
+  color: rgba(20, 20, 20, 0.75);
+}
+
+.light .nav-link.active,
+.light .mobile-nav-link.active,
+.light .nav-link:hover,
+.light .mobile-nav-link:hover,
+.light .footer-link:hover,
+.light .text-link:hover,
+.light .brand-link,
+.light .display-title,
+.light .page-title,
+.light .section-title,
+.light .card-title,
+.light .blog-title,
+.light .footer-brand,
+.light .summary-value {
+  color: #111111;
+}
+
+.light .hero-overlay {
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.88) 15%, rgba(255, 255, 255, 0.62) 52%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.light .theme-toggle-btn,
+.light .mobile-menu-btn {
+  color: #111111;
+}
+
+.light .image-card,
+.light .blog-card,
+.light .cta-strip,
+.light .panel,
+.light .booking-form,
+.light .admin-auth-card,
+.light .admin-list-item,
+.light .masonry-item,
+.light .site-footer,
+.light .site-header,
+.light .lightbox-close,
+.light .lightbox-nav {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.light .blog-card,
+.light .panel,
+.light .booking-form,
+.light .admin-auth-card,
+.light .cta-strip {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.light .card-overlay {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.88) 12%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+.light input,
+.light textarea {
+  background: rgba(255, 255, 255, 0.78);
+  color: #111111;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light input:focus,
+.light textarea:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.38);
+}
+
+.light .filter-chip {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(17, 17, 17, 0.82);
+}
+
+.light .filter-chip.active,
+.light .filter-chip:hover {
+  background: #0f0f0f;
+  color: #ffffff;
+  border-color: #0f0f0f;
+}
+
+.light .admin-auth-shell {
+  background: radial-gradient(circle at top left, #efefef 0%, #ffffff 75%);
+}
+
+.light .admin-dashboard-shell {
+  background: #fafafa;
+  color: #111111;
+}
+
+.light .admin-dashboard-shell .eyebrow,
+.light .admin-dashboard-shell .card-category,
+.light .admin-dashboard-shell .card-meta,
+.light .admin-dashboard-shell .body-text,
+.light .admin-dashboard-shell p {
+  color: rgba(20, 20, 20, 0.78);
+}
+
+.light .admin-dashboard-shell .card-title,
+.light .admin-dashboard-shell .page-title,
+.light .admin-dashboard-shell .section-title,
+.light .admin-dashboard-shell .summary-value {
+  color: #111111;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-grid .image-card {
+    grid-column: span 6 !important;
+    min-height: 300px !important;
+  }
+
+  .split-section,
+  .three-column,
+  .admin-content-grid,
+  .admin-summary-grid,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn,
+  .mobile-menu {
+    display: block;
+  }
+
+  .hero-section {
+    min-height: 72vh;
+  }
+
+  .section-head,
+  .cta-strip,
+  .admin-dashboard-header,
+  .admin-list-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .blog-grid,
+  .form-grid,
+  .gallery-grid .image-card {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid .image-card {
+    grid-column: span 12 !important;
+    min-height: 280px !important;
+  }
+
+  .content-wrap {
+    width: min(1200px, calc(100% - 1.4rem));
+  }
+
+  .enquiry-grid {
+    grid-template-columns: 1fr;
+  }
+}
